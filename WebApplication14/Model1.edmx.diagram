@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="09518d0ff2cf44ed8bf009a926b148b3" Name="Diagram1">
+        <EntityTypeShape EntityType="webtebModel.UserRegesteration" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtebModel.Answers" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="webtebModel.Organ" Width="1.5" PointX="2.625" PointY="1.125" />
+        <EntityTypeShape EntityType="webtebModel.Part" Width="1.5" PointX="4.875" PointY="0.875" />
+        <EntityTypeShape EntityType="webtebModel.Questions" Width="1.5" PointX="7.125" PointY="0.875" />
+        <AssociationConnector Association="webtebModel.FK__Answers__Q_Id__1CF15040" />
+        <AssociationConnector Association="webtebModel.FK__Part__Organ_Id__145C0A3F" />
+        <AssociationConnector Association="webtebModel.FK__Questions__Part___1A14E395" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

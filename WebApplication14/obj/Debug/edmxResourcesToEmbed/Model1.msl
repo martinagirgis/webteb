@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webtebModelStoreContainer" CdmEntityContainer="webtebEntities">
+    <EntitySetMapping Name="UserRegesteration">
+      <EntityTypeMapping TypeName="webtebModel.UserRegesteration">
+        <MappingFragment StoreEntitySet="UserRegesteration">
+          <ScalarProperty Name="FristName" ColumnName="FristName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Passwrd" ColumnName="Passwrd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="webtebModel.Answers">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="Last_Text" ColumnName="Last_Text" />
+          <ScalarProperty Name="Next_Question" ColumnName="Next_Question" />
+          <ScalarProperty Name="Q_Id" ColumnName="Q_Id" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organ">
+      <EntityTypeMapping TypeName="webtebModel.Organ">
+        <MappingFragment StoreEntitySet="Organ">
+          <ScalarProperty Name="Organ_Name" ColumnName="Organ_Name" />
+          <ScalarProperty Name="Organ_Id" ColumnName="Organ_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Part">
+      <EntityTypeMapping TypeName="webtebModel.Part">
+        <MappingFragment StoreEntitySet="Part">
+          <ScalarProperty Name="Organ_Id" ColumnName="Organ_Id" />
+          <ScalarProperty Name="Part_Name" ColumnName="Part_Name" />
+          <ScalarProperty Name="Part_Id" ColumnName="Part_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="webtebModel.Questions">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="Part_Id" ColumnName="Part_Id" />
+          <ScalarProperty Name="Queston" ColumnName="Queston" />
+          <ScalarProperty Name="Q_Id" ColumnName="Q_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

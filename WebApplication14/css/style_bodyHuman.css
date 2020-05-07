@@ -1,0 +1,109 @@
+body{
+ 
+}
+
+.sin-in
+{
+       background-image: url(../img/sighnin/1.jpg);
+ /*ackground: skyblue;*/
+    margin: 0 ;
+    padding: 0;
+    text-align: center;
+    background-size: 100% 100%;
+    /*height: 500px;*/
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.box{
+    /*position: absolute;*/
+    /*top: 70%;
+    left: 50%;*/
+    /*transform: translate(-50%,-50%);*/
+    width: 400px;
+   padding: 40px ;
+   padding-bottom: 80px;
+    background: rgba(52,105,123,.9) ;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5); 
+    border-radius: 10px ;
+    margin: auto;
+    text-align: right;
+
+}
+
+section
+{
+    margin: 80px;
+}
+
+.sec-1
+{
+    text-align: center;
+}
+
+.sec-2
+{
+    background-color: #a7d0d1;
+}
+
+.img-size
+{
+    width: 60%;
+    margin: auto;
+    height: 900px;
+}
+.img-1
+{
+    background-image: url(../img/tb_sha/body/body2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    /*height: 750px;*/
+    background-size: 100% 100%;
+    height: 750px;
+}
+.wi
+{
+    width: 100%;
+}
+.sec-3
+{
+    text-align: left;
+
+
+}
+.seca
+{
+    font-size: 22px !important;
+    color: #00667e !important;
+}
+
+.seca:hover
+{
+    color: #6A0888 !important;
+}
+
+.sec-31
+{
+    position: absolute;
+    right: 25%;
+}
+
+.sec-32
+{
+    position: absolute;
+    right: 65%;
+}
+
+.sec-33
+{
+    position: absolute;
+    right: 70%;
+}
+
+.sec-34
+{
+    position: absolute;
+    right: 20%;
+}

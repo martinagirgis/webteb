@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webtebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="A_Id" />
+    </Key>
+    <Property Name="A_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Q_Id" Type="int" Nullable="false" />
+    <Property Name="Next_Question" Type="int" />
+    <Property Name="Last_Text" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Organ">
+    <Key>
+      <PropertyRef Name="Organ_Id" />
+    </Key>
+    <Property Name="Organ_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Organ_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="Part_Id" />
+    </Key>
+    <Property Name="Part_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Part_Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Organ_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="Q_Id" />
+    </Key>
+    <Property Name="Q_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Queston" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Part_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRegesteration">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="FristName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Passwrd" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Answers__Q_Id__1CF15040">
+    <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+    <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="Q_Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="Q_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Part__Organ_Id__145C0A3F">
+    <End Role="Organ" Type="Self.Organ" Multiplicity="0..1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organ">
+        <PropertyRef Name="Organ_Id" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="Organ_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Part___1A14E395">
+    <End Role="Part" Type="Self.Part" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Part_Id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="Part_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webtebModelStoreContainer">
+    <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organ" EntityType="Self.Organ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Part" EntityType="Self.Part" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRegesteration" EntityType="Self.UserRegesteration" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Answers__Q_Id__1CF15040" Association="Self.FK__Answers__Q_Id__1CF15040">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Part__Organ_Id__145C0A3F" Association="Self.FK__Part__Organ_Id__145C0A3F">
+      <End Role="Organ" EntitySet="Organ" />
+      <End Role="Part" EntitySet="Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Part___1A14E395" Association="Self.FK__Questions__Part___1A14E395">
+      <End Role="Part" EntitySet="Part" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

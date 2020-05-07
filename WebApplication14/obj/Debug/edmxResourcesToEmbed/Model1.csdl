@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webtebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UserRegesteration">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="FristName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Passwrd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="webtebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserRegesteration" EntityType="Self.UserRegesteration" />
+    <EntitySet Name="Answers" EntityType="webtebModel.Answers" />
+    <EntitySet Name="Organ" EntityType="webtebModel.Organ" />
+    <EntitySet Name="Part" EntityType="webtebModel.Part" />
+    <EntitySet Name="Questions" EntityType="webtebModel.Questions" />
+    <AssociationSet Name="FK__Answers__Q_Id__1CF15040" Association="webtebModel.FK__Answers__Q_Id__1CF15040">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Part__Organ_Id__145C0A3F" Association="webtebModel.FK__Part__Organ_Id__145C0A3F">
+      <End Role="Organ" EntitySet="Organ" />
+      <End Role="Part" EntitySet="Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Part___1A14E395" Association="webtebModel.FK__Questions__Part___1A14E395">
+      <End Role="Part" EntitySet="Part" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="A_Id" />
+    </Key>
+    <Property Name="A_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Answer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Q_Id" Type="Int32" Nullable="false" />
+    <Property Name="Next_Question" Type="Int32" />
+    <Property Name="Last_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Questions" Relationship="webtebModel.FK__Answers__Q_Id__1CF15040" FromRole="Answers" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="Organ">
+    <Key>
+      <PropertyRef Name="Organ_Id" />
+    </Key>
+    <Property Name="Organ_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organ_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Part" Relationship="webtebModel.FK__Part__Organ_Id__145C0A3F" FromRole="Organ" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="Part_Id" />
+    </Key>
+    <Property Name="Part_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Part_Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Organ_Id" Type="Int32" />
+    <NavigationProperty Name="Organ" Relationship="webtebModel.FK__Part__Organ_Id__145C0A3F" FromRole="Part" ToRole="Organ" />
+    <NavigationProperty Name="Questions" Relationship="webtebModel.FK__Questions__Part___1A14E395" FromRole="Part" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="Q_Id" />
+    </Key>
+    <Property Name="Q_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Queston" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Part_Id" Type="Int32" />
+    <NavigationProperty Name="Answers" Relationship="webtebModel.FK__Answers__Q_Id__1CF15040" FromRole="Questions" ToRole="Answers" />
+    <NavigationProperty Name="Part" Relationship="webtebModel.FK__Questions__Part___1A14E395" FromRole="Questions" ToRole="Part" />
+  </EntityType>
+  <Association Name="FK__Answers__Q_Id__1CF15040">
+    <End Type="webtebModel.Questions" Role="Questions" Multiplicity="1" />
+    <End Type="webtebModel.Answers" Role="Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="Q_Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="Q_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Part__Organ_Id__145C0A3F">
+    <End Type="webtebModel.Organ" Role="Organ" Multiplicity="0..1" />
+    <End Type="webtebModel.Part" Role="Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organ">
+        <PropertyRef Name="Organ_Id" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="Organ_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Part___1A14E395">
+    <End Type="webtebModel.Part" Role="Part" Multiplicity="0..1" />
+    <End Type="webtebModel.Questions" Role="Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Part_Id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="Part_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

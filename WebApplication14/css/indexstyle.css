@@ -1,0 +1,112 @@
+*{
+    font-family: 'Almarai', sans-serif;
+
+}
+::selection{
+    background-color: rgba(84, 145, 161, 0.719);
+    color: #E3ECF0
+}
+
+/******************************************************* start list ******************************************************/
+
+.list{
+    padding: 10px 0;
+    padding-right: 28px;
+    border-top: 3px solid #427888
+}
+.list ul li{
+    display: inline;
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 20px
+
+}
+.list  a{
+    text-decoration: none !important;
+    color: #ffffff;
+
+}
+.list  a:hover{
+    color: #b4c9d8;
+
+}
+@media(max-width: 575px){
+    nav form input{
+        margin: 20px
+    }
+    nav form button{
+        position: absolute;
+        top: 27px;
+        left: 20%;
+    }
+    .navbar-collapse li a{
+        margin: 15px
+    }
+    .list ul li a{
+       padding-top: 40px
+    }
+}
+/******************************************************* End list ******************************************************/
+
+/******************************************************* start footer ******************************************************/
+.footer {
+    padding: 40px 0;
+    overflow: hidden;
+}
+.footer ul li{
+    display: inline;
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 20px 0;
+    
+
+}
+.footer ul li a{
+    text-decoration: none !important;
+color: #427888
+}
+.footer .foot{
+    text-align: left
+}
+.footer .pic{
+    text-align: right
+}
+@media(max-width: 775px){
+    .foot, .pic {
+        text-align: center !important
+    }
+}
+/******************************************************* End footer ******************************************************/
+/******************************************************* start copyright ******************************************************/
+
+
+
+.copyright{
+    padding:10px 0 0 0 ;
+    background-color: #E3ECF0
+}
+.copyright ul{
+    margin-bottom: 0
+}
+.copyright ul li{
+    display: inline-block;
+    margin-right: 10px;
+}
+.mine{
+    text-align: left
+}
+.minee{
+    text-align: right
+}
+.copyright ul li a{
+    color: #5E8091;
+  background-color: #fff;
+  font-size: 30px
+}
+@media(max-width: 775px){
+    .mine, .minee {
+        text-align: center !important
+    }
+}
+/******************************************************* End copyright ******************************************************/
